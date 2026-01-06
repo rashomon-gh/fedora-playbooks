@@ -140,17 +140,4 @@
       args:
         creates: "/home/{{ target_user }}//.cargo/bin/uv"
 
-    - name: Install Poetry
-      shell: |
-        curl -sSL https://install.python-poetry.org | python3 -
-      args:
-        creates: "/home/{{ target_user }}//.local/bin/poetry"
-
-    - name: Add Poetry to PATH
-      blockinfile:
-        path: "/home/{{ target_user }}//.bashrc"
-        block: |
-          export PATH="$HOME/.local/bin:$PATH"
-        marker: "# {mark} ANSIBLE MANAGED BLOCK - poetry"
-        create: true
 
