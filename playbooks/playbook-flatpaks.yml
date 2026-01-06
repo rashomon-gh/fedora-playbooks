@@ -9,6 +9,7 @@
       - com.spotify.Client
       - org.telegram.desktop
       - com.github.tchx84.Flatseal
+      - flathub org.signal.Signal
       - com.obsproject.Studio
       - md.obsidian.Obsidian
       - com.mattjakeman.ExtensionManager
@@ -32,7 +33,7 @@
       - com.usebruno.Bruno
       - n.srev.guiscrcpy 
       - io.dbeaver.DBeaverCommunity
-      - io.github.dvlv.boxbuddyrs 
+      - io.github.dvlv.boxbuddyrs
 
   tasks:
     - name: Add Flathub remote for user
