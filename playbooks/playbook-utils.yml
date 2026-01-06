@@ -7,25 +7,12 @@
         name: gnome-tweak-tool
         state: present
         
-    - name: Install tlp, htop, btop
+    - name: Install htop, btop
       dnf:
         name:
-          - tlp
-          - tlp-rdw
           - htop
           - btop
         state: present
-    - name: Remove tuned to prevent conflicts with tlp
-      dnf:
-        name:
-          - tuned
-          - tuned-ppd
-        state: absent
-
-    - name: Enable services for tlp
-      command: systemctl enable tlp.service
-    - name: Mask services conflicting with tlp
-      command: systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
     - name: Install wl-clipboard
       dnf:
@@ -57,7 +44,7 @@
         name: wget
         state: present
 
-    - name: Eable Fontmanager COPR repository
+    - name: Enable Fontmanager COPR repository
       shell: dnf copr enable jerrycasiano/FontManager -y
       register: copr_result
       changed_when: "'Repository successfully enabled.' in copr_result.stdout"
@@ -81,6 +68,7 @@
       dnf:
         name: gparted
         state: present
+
     - name: Install wavemon
       dnf:
         name: wavemon
@@ -90,6 +78,7 @@
       dnf:
         name: handbrake
         state: present
+
     - name: Install handbrake-gui
       dnf:
         name: handbrake-gui
@@ -98,14 +87,4 @@
     - name: Install Distrobox
       dnf:
         name: distrobox
-        state: present
-
-    - name: Add Signal repository
-      command: dnf config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/network:im:signal/Fedora_42/network:im:signal.repo
-      register: repo_result
-      changed_when: "'Repository successfully added.' in repo_result.stdout"
-
-    - name: Install Signal
-      dnf:
-        name: signal-desktop
         state: present
