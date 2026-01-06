@@ -1,9 +1,9 @@
 ---
-- import_playbook: playbook-starter.yml
-- import_playbook: playbook-nvidia.yml
-- import_playbook: playbook-utils.yml
-- import_playbook: playbook-devtools.yml
-- import_playbook: playbook-flatpaks.yml
-- import_playbook: playbook-media.yml
-- import_playbook: playbook-browsers.yml
-- import_playbook: playbook-openbangla.yml
+- import_playbook: playbooks/playbook-starter.yml
+- import_playbook: playbooks/playbook-nvidia.yml
+- import_playbook: playbooks/playbook-utils.yml
+- import_playbook: playbooks/playbook-devtools.yml
+- import_playbook: playbooks/playbook-flatpaks.yml
+- import_playbook: playbooks/playbook-media.yml
+- import_playbook: playbooks/playbook-browsers.yml
+- import_playbook: playbooks/playbook-openbangla.yml
