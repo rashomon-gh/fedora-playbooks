@@ -36,6 +36,7 @@
       - n.srev.guiscrcpy 
       - io.dbeaver.DBeaverCommunity
       - io.github.dvlv.boxbuddyrs
+      - org.remmina.Remmina
 
   tasks:
     - name: Add Flathub remote for user
