@@ -5,6 +5,7 @@
   vars:
     target_user: shawon
     flatpaks:
+      - io.github.kolunmi.Bazaar
       - com.discordapp.Discord
       - com.spotify.Client
       - org.telegram.desktop
