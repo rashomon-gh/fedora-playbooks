@@ -24,6 +24,7 @@
           - libffi-devel
           - patch
           - python3-devel
+          - zsh
         state: present
 
     - name: Add Docker repository
