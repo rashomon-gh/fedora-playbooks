@@ -14,8 +14,13 @@
       dnf:
         name: mpv
         state: present
-        
-    - name: Install Handbrake
+
+    - name: Install handbrake
       dnf:
         name: handbrake
+        state: present
+
+    - name: Install handbrake-gui
+      dnf:
+        name: handbrake-gui
         state: present

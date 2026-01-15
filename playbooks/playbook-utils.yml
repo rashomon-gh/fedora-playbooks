@@ -2,11 +2,6 @@
 - hosts: all
   become: true
   tasks:
-    - name: Install gnome-tweak-tool
-      dnf:
-        name: gnome-tweak-tool
-        state: present
-        
     - name: Install htop, btop
       dnf:
         name:
@@ -44,16 +39,6 @@
         name: wget
         state: present
 
-    - name: Enable Fontmanager COPR repository
-      shell: dnf copr enable jerrycasiano/FontManager -y
-      register: copr_result
-      changed_when: "'Repository successfully enabled.' in copr_result.stdout"
-    
-    - name: Install font-manager
-      dnf:
-        name: font-manager
-        state: present   
-
     - name: Install bottles
       dnf:
         name: bottles
@@ -67,21 +52,6 @@
     - name: Install gparted
       dnf:
         name: gparted
-        state: present
-
-    - name: Install wavemon
-      dnf:
-        name: wavemon
-        state: present
-
-    - name: Install handbrake
-      dnf:
-        name: handbrake
-        state: present
-
-    - name: Install handbrake-gui
-      dnf:
-        name: handbrake-gui
         state: present
 
     - name: Install Distrobox
