@@ -7,15 +7,11 @@
     flatpaks:
       - io.github.kolunmi.Bazaar
       - com.discordapp.Discord
-      - com.slack.Slack
       - com.spotify.Client
       - org.telegram.desktop
       - com.github.tchx84.Flatseal
-      - flathub org.signal.Signal
+      - org.signal.Signal
       - com.obsproject.Studio
-      - md.obsidian.Obsidian
-      - com.mattjakeman.ExtensionManager
-      - org.gnome.World.PikaBackup
       - org.filezillaproject.Filezilla
       - io.podman_desktop.PodmanDesktop
       - com.github.jeromerobert.pdfarranger
@@ -25,18 +21,11 @@
       - org.torproject.torbrowser-launcher
       - org.zotero.Zotero
       - org.mozilla.Thunderbird
-      - net.davidotek.pupgui2
-      - it.mijorus.gearlever
-      - io.github.wartybix.Constrict
-      - dev.geopjr.Collision
       - io.github.getnf.embellish
       - io.github.ronniedroid.concessio
       - re.sonny.Eloquent
-      - com.usebruno.Bruno
-      - n.srev.guiscrcpy 
-      - io.dbeaver.DBeaverCommunity
-      - io.github.dvlv.boxbuddyrs
-      - org.remmina.Remmina
+      - com.spotify.Client
+
 
   tasks:
     - name: Add Flathub remote for user
