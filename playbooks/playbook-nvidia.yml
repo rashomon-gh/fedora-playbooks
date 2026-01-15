@@ -3,6 +3,10 @@
   become: true
 
   tasks:
+    - name: Install nvidia RPM fusion drivers
+      dnf:
+        name: xorg-x11-drv-nvidia
+        state: present
     - name: Install akmod-nvidia
       dnf:
         name: akmod-nvidia
