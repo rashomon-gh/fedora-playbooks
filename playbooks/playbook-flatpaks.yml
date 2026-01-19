@@ -25,6 +25,7 @@
       - io.github.ronniedroid.concessio
       - re.sonny.Eloquent
       - com.spotify.Client
+      - com.github.d4nj1.tlpui
 
 
   tasks:

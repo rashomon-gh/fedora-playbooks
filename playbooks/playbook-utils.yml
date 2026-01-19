@@ -58,3 +58,34 @@
       dnf:
         name: distrobox
         state: present
+
+    
+    - name: Install TLP
+      dnf:
+        name:
+          - tlp
+          - tlp-pd
+          - tlp-rdw
+        state: present
+
+    - name: Remove tuned and tuned-ppd
+      dnf:
+        name:
+          - tuned
+          - tuned-ppd
+        state: absent
+
+    - name: Enable and start TLP service
+      systemd:
+        name: 
+          - tlp.service
+          - tlp-pd.service
+        enabled: true
+        state: started
+    - name: Mask conflicting services
+      systemd:
+        name:
+          - systemd-rfkill.service
+          - systemd-rfkill.socket
+        masked: true
+    
