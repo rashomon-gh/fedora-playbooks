@@ -27,6 +27,9 @@
       - com.spotify.Client
       - com.github.d4nj1.tlpui
       - io.github.dvlv.boxbuddyrs
+      - net.davidotek.pupgui2
+      - com.github.Matoking.protontricks
+      - com.heroicgameslauncher.hgl
 
 
   tasks:
