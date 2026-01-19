@@ -7,10 +7,6 @@
       dnf:
         name: xorg-x11-drv-nvidia
         state: present
-    - name: Install akmod-nvidia
-      dnf:
-        name: akmod-nvidia
-        state: present
     - name: Install cuda libs from rpm-fusion
       dnf:
         name: xorg-x11-drv-nvidia-cuda-libs
