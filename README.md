@@ -4,20 +4,22 @@ Fedora post installation steps automated with ansible.
 
 ## playbooks
 
-The repository ships a set of focused Ansible playbooks; use the table below to see each playbook's purpose.
+The repository ships a set of focused Ansible playbooks.
 
-| playbook | function |
-|---|---|
-| `playbook.yml` | Top-level aggregator that imports and runs the other playbooks. |
-| `playbook-starter.yml` | Initial system setup: tweak dnf settings, update the system, and add RPM Fusion repositories and codec support. |
-| `playbook-nvidia.yml` | Installs NVIDIA drivers, CUDA-related runtime libraries from RPM Fusion, and GPU monitoring tools. |
-| `playbook-utils.yml` | Installs common utilities and tools (power management, system monitors, fetch utilities, font manager, clipboard/tree tools). |
-| `playbook-devtools.yml` | Installs development packages and tools, container runtimes (Docker), VS Code, Node/Rust/Python toolchains, and user-level developer utilities. |
-| `playbook-flatpaks.yml` | Adds the Flathub remote and installs a curated list of Flatpak applications for the target user. |
-| `playbook-media.yml` | Installs multimedia libraries and applications (multimedia group, VLC, MPV, HandBrake). |
-| `playbook-gaming.yml` | Installs gaming packages and overlays (Steam, Lutris, MangoHud, gamemode, etc.). |
-| `playbook-brave.yml` | Installs the Brave web browser via the Brave install script. |
-| `playbook-openbangla.yml` | Installs the OpenBangla keyboard using its install script. |
+```bash
+playbooks
+├── playbook-browsers.yml
+├── playbook-devtools.yml
+├── playbook-flatpaks.yml
+├── playbook-gaming.yml
+├── playbook-media.yml
+├── playbook-nvidia.yml
+├── playbook-openbangla.yml
+├── playbook-starter.yml
+├── playbook-tailscale.yml
+├── playbook-tlp.yml
+└── playbook-utils.yml
+```
 
 > [!NOTE]
 > If you don't need specific playbooks you can comment them out in the `playbook.yml` file.
@@ -56,53 +58,4 @@ ansible-playbook -i localhost, --connection=local -K playbook.yml
 
 
 > [!TIP]
-> If you've a dual gpu laptop (iGPU+dGPU), use the following as the launcher command to run games on the dGPU: `%command% -graphicsadapter=0`
-
-
-
-
-## misc
-
-### Trackpad Gestures
-
-In Gnome 48 on fedora 42, two finger swipe is enabled in Chrome*, and Firefox. If you use Brave, you will have to edit the `.desktop` entry. 
-
-> [!NOTE]
-> Gestures work only in Wayland
-
-```bash
-sudo nano /usr/share/applications/brave-browser.desktop
-
-# add the following at the end of each Exec command
---enable-features=TouchpadOverscrollHistoryNavigation 
-```
-
-
-### Disabling thinkpad trackpoint
-
-Perhaps considered heresy in the cult of the thinkpad but I saw no use for it in my workflow, especially with a haptic trackpad in place. 
-
-First get the trackpoint name from devices list:
-
-```bash
-cat /proc/bus/input/devices
-```
-
-On my P1G7 it's: `TPPS/2 Elan TrackPoint`
-
-
-```bash
-# create a udev rule
-sudo nano /etc/udev/rules.d/99-disable-trackpoint.rules
-
-# then add the following to the file
-ACTION=="add", SUBSYSTEM=="input", ATTRS{name}=="TPPS/2 Elan TrackPoint", RUN+="/bin/sh -c 'echo 1 > /sys$devpath/inhibited'"
-
-```
-
-Then activate the rule
-
-```bash
-sudo udevadm control --reload-rules
-sudo udevadm trigger
-```
+> If you've a dual gpu laptop (iGPU+dGPU), use the following as the launcher command to run games on the dGPU: `%command% -graphicsadapter=0` if games run on iGPU by default.
