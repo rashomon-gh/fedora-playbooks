@@ -26,6 +26,7 @@
       - re.sonny.Eloquent
       - com.spotify.Client
       - com.github.d4nj1.tlpui
+      - io.github.dvlv.boxbuddyrs
 
 
   tasks:
